@@ -1,0 +1,323 @@
+:root{
+    /* custom propertys: paleta de colores para modificar 1 sola vez, se puede almacenar cualquier valor, reutilizable   */
+
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario:#ffc107;
+    --secundario: #0097a7;
+    --gris:#757575;  
+    --gris-claro: #e3d084;
+
+}
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box; /* Selector que ayuda a el modelo de cajas (box model) en css  */
+    scroll-snap-type: y mandatory;  /* funcion de scrolear en el eje y, mandatory transicion suave */
+}
+/* esta linea aplica el border box a todos los elementos que lo necesiten*/
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body{
+    font-size: 16px;
+     /* fuentes: google fonts para ver mas atractivo */
+    font-family: "Krub", sans-serif;
+    background-image: linear-gradient(to top: var(--gris-claro) 0%, var(--blanco) 50%)
+}
+
+ /*se define las caracteristicas de los h1 h2 h3  sistema de diseño  */
+
+h2{
+    font-size: 2.8rem;
+}
+
+
+h3{
+    font-size: 1.8rem;
+}
+
+h1,h2,h3{
+    text-align: center;
+}
+/*--------sistema de diseño terminado-----------*/
+
+
+/* la opciones anteriores nos permite usar rem con mayor comodidad, asi adaptar a las pantallas de cualquier tipo */
+
+.contenido-hero h1{
+    text-align: center;
+    font-size: 3.8rem;
+    color: var(--oscuro);
+
+}
+
+.boton{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    text-decoration: none;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+
+@media(min-width: 768px){
+    .boton{
+        width: auto;
+    }
+}
+
+.sombra{/*--------box shadow sombra del main -----------*/
+    -webkit-box-shadow: 0px 5px 15px 7px rgba(89,81,89,0.55);
+    -moz-box-shadow: 0px 5px 15px 7px rgba(89,81,89,0.55);
+    box-shadow: 0px 5px 15px 7px rgba(89,81,89,0.55);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.contenido-hero span{
+    font-size: 2rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style:italic;
+}
+
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+    
+
+
+}
+.contenido-hero2 p{
+    font-size: 2rem;
+}
+
+.boton:hover{
+    cursor: pointer;
+}
+
+/*--------utilidadez -----------*/
+.w-100{
+    width: 100%;
+
+}
+
+@media(min-width: 768px){
+    .w-100{
+        width: auto;
+    }
+}
+
+.flex{
+    display: flex;
+}
+
+
+.alienar-derecha{
+    justify-content: flex-end;
+
+}
+
+.nav-bg{
+    background-color: var(--secundario);
+
+}
+
+.navegacion-principal{
+   
+    display: flex;
+    flex-direction: column;
+    
+}
+
+@media(min-width: 488px){
+    .navegacion-principal{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+
+}
+
+/* 480 (medida estandar telefonos ) 768(medida estandar de una tablet ) 1140(laptop o pc ) 1440 0 1400(tamaño mas grande) */
+
+.navegacion-principal a {
+    display: block;
+    text-align: center;
+    color: var(--blanco);
+    text-decoration: none; /* quitar la linea de abajo del menu  */
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem;
+}
+
+/* propiedad para cabiar el texto o eventos seudo clases  */
+.navegacion-principal a:hover{
+background-color: var(--primario);
+color: var(--oscuro);
+}
+
+
+
+.hero2{
+    /* propiedades para calcular imagenes           */
+    background-image: url(../img/desarrollo-de-aplicaciones-web-escritorio-ventajas-scaled.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.contenido-hero2{
+    position: absolute;
+    background-color: rgba(53, 50, 50, 0.719);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;/* se ponen los items de izquierda a derceha  */
+    align-items: center;/* se centra el contenido  ya que se uso colum, alinear verticalmente   */
+    justify-content: center;
+
+}
+
+.contenido-hero2 h2,
+.contenido-hero2 p {
+    color: var(--blanco);
+}
+
+/* servicios */
+.servicios, .navegacion-principal, .formulario {
+    scroll-snap-align: center;/* opcion nueva de css, para que el usuario pueda escrolear puntos especificos  */
+    scroll-snap-stop:always;
+}
+
+@media( min-width: 768px){/* media queries para que quede en columnas en tamaños de celular */
+    .servicios {
+        display: grid;
+        grid-template-columns: repeat(3, 33.3%); /* Tres columnas de igual ancho */
+        column-gap: 1rem;
+        justify-items: center;
+        padding: 3rem;
+        grid-row: auto auto  10rem;
+        background-color: var(--gris-claro);
+
+        border-radius: 4rem;   
+        
+    }
+}
+
+.servicios p{
+    line-height: 2;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+.servicio svg{
+    height:8rem ;
+    width: 8rem ;
+    background-color: var(--primario);
+    border-radius: 3rem;
+    display: flex;
+    padding: 3rem;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+
+
+.servicios h3 {
+    color: var(--secundario);
+
+}
+
+
+
+
+/** contacto */
+
+
+.formulario{
+    background-color: var(--oscuro);
+    width: min(60rem, 100%);/* utiliza el valor mas pequeño para ahorara media queries */
+    margin: 0 auto;/* utilizarlo  cuando no se tenga un display flex, que tenga po predeterminado un display blcok  */
+    padding: 2rem;
+    border-radius: 3rem;
+
+}
+
+
+.formulario fieldset{
+    border: none;
+
+
+}
+
+.formulario legend {
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primario);
+    margin-left: 6rem;
+    
+}
+
+@media( min-width:768px){
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;
+    }
+
+    .campos:nth-child(3),/*arreglo para validar los conetenidos de la lista y poder ubicar el oreden de los items */
+    .campos:nth-child(4){
+        grid-column: 1 /3;/*con esta opcion ubico mi contenido,ya que se libera con display-grid para poder dar orden en las cuadriculas */
+    }
+
+
+}
+
+.campos{
+    margin-bottom: 1rem;
+
+}
+
+.campos textarea{
+    height: 17rem;
+}
+
+.campos label{
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;/* esto funciona para que los campos se adapten al espacio disponible*/
+}
+
+.input-text{
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+    
+}
+
+/* footer*/
+.footer{
+    text-align: center;
+}
+
+
+
